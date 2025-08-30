@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RUAS Portal - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .dropdown { display: none; }
+      .dropdown.show { display: block; }
+    </style>
+  </head>
+
+  <body class="m-0 font-sans bg-cover bg-center bg-no-repeat relative min-h-screen">
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/10"></div>
+
+    <!-- Top Blue Header -->
+    <header class="relative z-40 flex items-center justify-between bg-blue-900 text-white px-6 py-3 shadow-md">
+      <!-- Left -->
+      <div class="flex items-center gap-6">
+        <img src="customer-logo.png" alt="RUAS Logo" class="h-10" />
+        <nav class="hidden md:flex gap-6 text-sm font-medium">
+          <a href="#" class="hover:text-blue-600 font-medium">Dashboard</a>
+          <a href="#" class="hover:text-blue-600">Today's Schedule</a>
+          <a href="#" class="hover:text-blue-600">Reports</a>
+        </nav>
+      </div>
+
+      <!-- Right -->
+      <div class="flex items-center gap-4 text-sm">
+        <button class="relative">
+          🔔
+          <span class="absolute -top-1 -right-2 bg-red-600 text-white text-xs px-1 rounded-full">5</span>
+        </button>
+        <div class="h-8 w-8 rounded-full bg-gray-300">
+            <img src="hh.jpg" alt="Profile" class="h-8 w-8 rounded border-2 border-gray-300 mb-3" />
+        </div>
+      </div>
+    </header>
+
+    <!-- White Sub-header with Dropdowns -->
+    <div class="relative z-30 bg-white text-gray-800 px-6 py-2 shadow flex items-center justify-between text-sm">
+      <!-- Left Menu -->
+      <div class="flex gap-6 whitespace-nowrap">
+        <!-- Academic Schedules Dropdown -->
+        <div class="relative">
+          <button onclick="toggleDropdown('scheduleDropdown')" class="hover:underline flex items-center gap-1">
+            Academic Schedules 
+          </button>
+          <div id="scheduleDropdown" class="dropdown absolute left-0 mt-2 bg-blue-800 text-white rounded shadow-lg w-64 z-50">
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">University Exam Form/Regular/Backlog</a>
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">University Regular/Reappear Exam Form</a>
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">Hall Ticket</a>
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">Admit Card</a>
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">Result Download</a>
+          </div>
+        </div>
+
+        <!-- Academic Functions Dropdown -->
+        <div class="relative">
+          <button onclick="toggleDropdown('functionDropdown')" class="hover:underline flex items-center gap-1">
+            Academic Functions 
+          </button>
+          <div id="functionDropdown" class="dropdown absolute left-0 mt-2 bg-blue-800 text-white rounded shadow-lg w-64 z-50">
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">Courses</a>
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">Projects</a>
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">Course Registration</a>
+            <a href="result.html" class="block px-4 py-2 bg-blue-700 hover:bg-green-700">University Exam/Result</a>
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">Course Feedback</a>
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">Online Assessment</a>
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">Online Assessment Result</a>
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">Summer Internship Programme</a>
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">Home Paper/Seminar/Project</a>
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">Student Remedial Course Choice</a>
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">Course Register Under CBCS</a>
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">Student Management</a>
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">Extra Credit Course Registration</a>
+            <a href="#" class="block px-4 py-2 hover:bg-blue-600">Repeat Course Preference Choices</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Greeting -->
+      <div class="text-xs text-gray-500 whitespace-nowrap">Welcome, Sayak</div>
+    </div>
+
+    <!-- Main Content (Sidebar + Dashboard side by side always) -->
+    <div class="relative z-10 flex flex-row w-full h-full p-6 gap-6 text-white overflow-x-auto">
+      <!-- Sidebar -->
+      <div class="bg-black/30 rounded-md w-64 p-4 shrink-0">
+        <div class="flex flex-col items-center mb-6">
+          <img src="hh.jpg" alt="Profile" class="h-24 w-24 border-2 border-gray-300 mb-3" />
+          <h2 class="text-lg font-bold">Sayak Guha</h2>
+          <p class="text-xs">Roll No: 23ETA140042</p>
+          <p class="text-xs">4th Sem, B.Tech AI & ML</p>
+        </div>
+
+        <nav class="space-y-3 text-sm">
+          <a href="#" class="block p-2 bg-blue-600 rounded hover:bg-blue-700">Dashboard</a>
+          <a href="#" class="block p-2 bg-black/30 rounded hover:bg-black/40">Profile</a>
+          <a href="#" class="block p-2 bg-black/30 rounded hover:bg-black/40">Syllabus</a>
+          <a href="#" class="block p-2 bg-black/30 rounded hover:bg-black/40">Calendar</a>
+          <a href="#" class="block p-2 bg-black/30 rounded hover:bg-black/40">Time Table</a>
+          <a href="#" class="block p-2 bg-black/30 rounded hover:bg-black/40">Mentor</a>
+          <a href="#" class="block p-2 bg-black/30 rounded hover:bg-black/40">Blogs</a>
+        </nav>
+      </div>
+
+      <!-- Dashboard Cards -->
+      <div class="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-md text-center overflow-hidden">
+          <h3 class="text-xl font-bold pt-4 text-gray-900">5</h3>
+          <div class="bg-red-700 text-white py-2 text-sm font-medium">Announcements</div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md text-center overflow-hidden">
+          <h3 class="text-xl font-bold pt-4 text-gray-900">62.64%</h3>
+          <div class="bg-yellow-700 text-white py-2 text-sm font-medium">Attendance</div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md text-center overflow-hidden">
+          <h3 class="text-xl font-bold pt-4 text-gray-900">0</h3>
+          <div class="bg-purple-700 text-white py-2 text-sm font-medium">Assessment</div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md text-center overflow-hidden">
+          <h3 class="text-xl font-bold pt-4 text-gray-900">13</h3>
+          <div class="bg-blue-700 text-white py-2 text-sm font-medium">Tasks</div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md text-center overflow-hidden">
+          <h3 class="text-xl font-bold pt-4 text-gray-900">0</h3>
+          <div class="bg-green-700 text-white py-2 text-sm font-medium">Placement</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="relative b-0 z-10 bg-black/50 text-center text-xs text-gray-300 mt-8 pt-4 pb-4">
+      Terms & Conditions | Privacy Policy | Support <br />
+      Powered by <strong>JUNO Campus</strong>
+    </footer>
+
+    <!-- Script -->
+    <script>
+      function toggleDropdown(id) {
+        const dropdown = document.getElementById(id);
+        const isOpen = dropdown.classList.contains("show");
+
+        // Close all dropdowns first
+        document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("show"));
+
+        // Toggle only clicked one
+        if (!isOpen) {
+          dropdown.classList.add("show");
+        }
+      }
+
+      // Close dropdown when clicking outside
+      window.addEventListener("click", function(e) {
+        if (!e.target.closest("button") && !e.target.closest(".dropdown")) {
+          document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("show"));
+        }
+      });
+    </script>
+  </body>
+</html>

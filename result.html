@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RUAS Portal - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .dropdown {
+        display: none;
+      }
+      .dropdown.show {
+        display: block;
+      }
+
+      /* Submenu positioning */
+      .submenu {
+        display: none;
+        position: absolute;
+        left: 100%;
+        top: 0;
+      }
+      .group:hover .submenu {
+        display: block;
+      }
+    </style>
+    <script>
+      function toggleDropdown(id) {
+        document.querySelectorAll(".dropdown").forEach((d) => {
+          if (d.id !== id) d.classList.remove("show");
+        });
+        document.getElementById(id).classList.toggle("show");
+      }
+
+      // Close when clicking outside
+      window.addEventListener("click", function (e) {
+        if (!e.target.closest(".relative")) {
+          document
+            .querySelectorAll(".dropdown")
+            .forEach((d) => d.classList.remove("show"));
+        }
+      });
+
+      // For submenu clicks (mobile)
+      function toggleSubmenu(id) {
+        document.getElementById(id).classList.toggle("show");
+      }
+    </script>
+  </head>
+
+  <body class="m-0 font-sans bg-gray-100 relative min-h-screen">
+    <!-- Top Blue Header -->
+    <header class="relative z-40 flex items-center justify-between bg-blue-900 text-white px-6 py-3 shadow-md">
+      <!-- Left -->
+      <div class="flex items-center gap-6">
+        <img src="customer-logo.png" alt="RUAS Logo" class="h-10" />
+        <nav class="hidden md:flex gap-6 text-sm font-medium">
+          <a href="#" class="hover:text-blue-600 font-medium">Dashboard</a>
+          <a href="#" class="hover:text-blue-600">Today's Schedule</a>
+          <a href="#" class="hover:text-blue-600">Reports</a>
+        </nav>
+      </div>
+
+      <!-- Right -->
+      <div class="flex items-center gap-4 text-sm">
+        <button class="relative">
+          🔔
+          <span class="absolute -top-1 -right-2 bg-red-600 text-white text-xs px-1 rounded-full">5</span>
+        </button>
+        <div class="h-8 w-8 rounded-full bg-gray-300">
+            <img src="hh.jpg" alt="Profile" class="h-8 w-8 rounded border-2 border-gray-300 mb-3" />
+        </div>
+      </div>
+    </header>
+
+    <!-- White Sub-header -->
+    <div
+      class="relative z-30 bg-white text-gray-800 px-6 py-2 shadow flex items-center justify-between text-sm"
+    >
+      <div class="flex gap-6 whitespace-nowrap">
+        <a href="#" class="hover:underline">Academic Schedules</a>
+        <a href="#" class="hover:underline">Academic Functions</a>
+      </div>
+      <div class="text-xs text-gray-500 whitespace-nowrap">Welcome, Sayak</div>
+    </div>
+
+    <!-- Result Dropdown -->
+    <div class="relative px-6 flex justify-center mt-6">
+      <button
+        onclick="toggleDropdown('resultDropdown')"
+        class="bg-white w-1/2 border border-gray-300 text-gray-800 px-6 py-3 rounded-lg shadow hover:bg-gray-100 flex justify-center items-center gap-2 font-semibold"
+      >
+        Result
+      </button>
+
+      <!-- Main Dropdown -->
+      <div
+        id="resultDropdown"
+        class="dropdown absolute left-1/2 -translate-x-1/2 mt-2 bg-blue-800 text-white rounded shadow-lg w-32 top-10 border-1 border-black z-50"
+      >
+        <!-- 1st Year -->
+        <div class="relative group w-32">
+          <button
+            onclick="toggleSubmenu('year1Dropdown')"
+            class="w-32 text-left px-4 py-2 hover:bg-blue-600 flex justify-between items-center"
+          >
+            1st Year
+          </button>
+          <div
+            id="year1Dropdown"
+            class="submenu dropdown bg-blue-700 text-white rounded shadow-lg w-48 z-50"
+          >
+            <a href="1stsem.html" class="block px-4 py-2 hover:bg-blue-600">
+              1st Semester
+            </a>
+            <a href="2ndsem.html" class="block px-4 py-2 hover:bg-blue-600">
+              2nd Semester
+            </a>
+          </div>
+        </div>
+
+        <!-- 2nd Year -->
+        <div class="relative group">
+          <button
+            onclick="toggleSubmenu('year2Dropdown')"
+            class="w-32 text-left px-4 py-2 hover:bg-blue-600 flex justify-between items-center"
+          >
+            2nd Year
+          </button>
+          <div
+            id="year2Dropdown"
+            class="submenu dropdown bg-blue-700 text-white rounded shadow-lg w-48 z-50"
+          >
+            <a href="3.pdf" class="block px-4 py-2 hover:bg-blue-600">
+              3rdSemester
+            </a>
+            <a href="4.pdf" class="block px-4 py-2 hover:bg-blue-600">
+              4th Semester
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
